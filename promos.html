@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Promos y Combos - JF BBQ</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .promo-section {
+      padding: 40px 0;
+      margin-bottom: 60px; /* Espacio adicional después de las promociones */
+    }
+    
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .promo-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .promo-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .promo-header {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .promo-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: #ff6b35;
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+    }
+    
+    .promo-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    
+    .promo-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .promo-content {
+      padding: 25px;
+    }
+    
+    .promo-items {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    
+    .promo-items li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .promo-items li:last-child {
+      border-bottom: none;
+    }
+    
+    .promo-items li i {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+    
+    .promo-price {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .price-old {
+      text-decoration: line-through;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    .price-new {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-left: 10px;
+    }
+    
+    .promo-description {
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 15px;
+    }
+    
+    .combo-section {
+      background: var(--light);
+      padding: 60px 0;
+      margin-bottom: 80px; /* Espacio adicional antes del footer */
+    }
+    
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .combo-card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .combo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .combo-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+    
+    .combo-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    
+    .combo-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .combo-description {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .special-offer {
+      background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+      color: var(--white);
+      padding: 40px 20px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .special-offer h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .special-offer p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--primary);
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media(max-width: 768px) {
+      .promo-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .combo-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .special-offer h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <div class="navbar-logo"><i class="fas fa-fire"></i> JF BBQ</div>
+      <div class="navbar-links">
+        <a href="index.html">Inicio</a>
+        <a href="entradas.html">Entradas</a>
+        <a href="almuerzos.html">Almuerzos</a>
+        <a href="comidasrapidas.html">Comidas Rápidas</a>
+        <a href="promos.html">Promos y Combos</a>
+        <a href="bebidas.html">Bebidas</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TÍTULO -->
+  <header>Promos y Combos</header>
+
+  <!-- OFERTA ESPECIAL -->
+  <section class="special-offer">
+    <div class="container">
+      <h2><i class="fas fa-star"></i> ¡OFERTA ESPECIAL!</h2>
+      <p>Por tiempo limitado, disfruta de nuestros combos familiares con 20% de descuento</p>
+      <a href="#combos" class="cta-button">Ver Combos</a>
+    </div>
+  </section>
+
+  <!-- PROMOCIONES -->
+  <section class="promo-section">
+    <div class="container">
+      <h2 class="section-title">Promociones del Día</h2>
+      <p class="section-subtitle">Aprovecha estas increíbles ofertas</p>
+      
+      <div class="promo-grid">
+        <div class="promo-card">
+          <div class="promo-header">
+            <div class="promo-badge">¡HOT!</div>
+            <div class="promo-title">Combo Parrillero</div>
+            <div class="promo-subtitle">Para 2 personas</div>
+          </div>
+          <div class="promo-content">
+            <ul class="promo-items">
+              <li><i class="fas fa-check"></i> 2 Costillas BBQ</li>
+              <li><i class="fas fa-check"></i> 2 Hamburguesas Gourmet</li>
+              <li><i class="fas fa-check"></i> Papas Fritas Familiares</li>
+              <li><i class="fas fa-check"></i> 2 Bebidas</li>
+              <li><i class="fas fa-check"></i> Postre a elección</li>
+            </ul>
+            <div class="promo-price">
+              <span class="price-old">$45.000</span>
+              <span class="price-new">$35.000</span>
+            </div>
+            <p class="promo-description">Válido de lunes a jueves</p>
+          </div>
+        </div>
+
+        <div class="promo-card">
+          <div class="promo-header">
+            <div class="promo-badge">NUEVO</div>
+            <div class="promo-title">Combo Familiar</div>
+            <div class="promo-subtitle">Para 4 personas</div>
+          </div>
+          <div class="promo-content">
+            <ul class="promo-items">
+              <li><i class="fas fa-check"></i> 4 Platos Principales</li>
+              <li><i class="fas fa-check"></i> 2 Entradas Grandes</li>
+              <li><i class="fas fa-check"></i> Papas y Yucas</li>
+              <li><i class="fas fa-check"></i> 4 Bebidas</li>
+              <li><i class="fas fa-check"></i> 2 Postres</li>
+            </ul>
+            <div class="promo-price">
+              <span class="price-old">$85.000</span>
+              <span class="price-new">$65.000</span>
+            </div>
+            <p class="promo-description">Incluye servicio a domicilio</p>
+          </div>
+        </div>
+
+        <div class="promo-card">
+          <div class="promo-header">
+            <div class="promo-badge">FLASH</div>
+            <div class="promo-title">Happy Hour</div>
+            <div class="promo-subtitle">De 5:00 PM a 7:00 PM</div>
+          </div>
+          <div class="promo-content">
+            <ul class="promo-items">
+              <li><i class="fas fa-check"></i> 2x1 en Bebidas</li>
+              <li><i class="fas fa-check"></i> 30% descuento en entradas</li>
+              <li><i class="fas fa-check"></i> Hamburguesas a mitad de precio</li>
+              <li><i class="fas fa-check"></i> Música en vivo</li>
+            </ul>
+            <div class="promo-price">
+              <span class="price-new">¡GRATIS!</span>
+            </div>
+            <p class="promo-description">Todos los días de la semana</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section class="combo-section" id="combos">
+    <div class="container">
+      <h2 class="section-title">Combos Especiales</h2>
+      <p class="section-subtitle">Perfectas combinaciones para cualquier ocasión</p>
+      
+      <div class="combo-grid">
+        <div class="combo-card" onclick="openModal('img/promos.jpeg')">
+          <div class="combo-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="combo-title">Combo Especial 1</h3>
+          <div class="combo-price">¡Haz clic para ver!</div>
+          <p class="combo-description">Descubre nuestra primera promoción especial</p>
+        </div>
+
+        <div class="combo-card" onclick="openModal('img/promos2.jpeg')">
+          <div class="combo-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3 class="combo-title">Combo Especial 2</h3>
+          <div class="combo-price">¡Haz clic para ver!</div>
+          <p class="combo-description">Descubre nuestra segunda promoción especial</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-fire"></i> JF BBQ
+        </div>
+        <p>Desde 2007 en Ibagué | © 2025</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="expandedImage">
+  </div>
+
+</body>
+</html>
+
+<script>
+  function openModal(imageSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImage");
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    document.body.style.overflow = 'auto';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("imageModal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Almuerzos - JF BBQ</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="nav.js" defer></script>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <div class="navbar-logo"><i class="fas fa-fire"></i> JF BBQ</div>
+      <div class="navbar-links">
+        <a href="index.html">Inicio</a>
+        <a href="entradas.html">Entradas</a>
+        <a href="almuerzos.html">Almuerzos</a>
+        <a href="comidasrapidas.html">Comidas Rápidas</a>
+        <a href="promos.html">Promos y Combos</a>
+        <a href="bebidas.html">Bebidas</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>Almuerzos</header>
+
+  <div class="menu-grid">
+    <div class="combo-card" onclick="openModal('img/pollo.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-drumstick-bite"></i>
+      </div>
+      <h3 class="combo-title">Pollo</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Pechuga de pollo a la plancha con guarnición.</p>
+    </div>
+
+    <div class="combo-card" onclick="openModal('img/pescados.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-fish"></i>
+      </div>
+      <h3 class="combo-title">Pescado</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Pescado frito con arroz con coco y patacón.</p>
+    </div>
+
+    <div class="combo-card" onclick="openModal('img/criollos.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-home"></i>
+      </div>
+      <h3 class="combo-title">Los Criollos</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Almuerzo típico colombiano con sabor casero.</p>
+    </div>
+
+    <div class="combo-card" onclick="openModal('img/sancochos.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-soup"></i>
+      </div>
+      <h3 class="combo-title">Sancochos</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Sancocho de gallina o carne con yuca, plátano y mazorca.</p>
+    </div>
+
+    <div class="combo-card" onclick="openModal('img/cerdos.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-fire"></i>
+      </div>
+      <h3 class="combo-title">Cerdos y Carne llanera</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Carnes jugosas al carbón, estilo llanero.</p>
+    </div>
+
+    <div class="combo-card" onclick="openModal('img/res.jpeg')">
+      <div class="combo-icon">
+        <i class="fas fa-steak"></i>
+      </div>
+      <h3 class="combo-title">Res</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Filete de res a la parrilla con papas criollas y ensalada.</p>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-fire"></i> JF BBQ
+        </div>
+        <p>Desde 2007 en Ibagué | © 2025</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal para imagen ampliada -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="expandedImage">
+  </div>
+
+</body>
+</html>
+<script>
+  function openModal(imageSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImage");
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    document.body.style.overflow = 'auto';
+  }
+
+  // Cerrar modal al hacer clic fuera de la imagen
+  window.onclick = function(event) {
+    const modal = document.getElementById("imageModal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>
+
+<style>
+  .combo-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .combo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .combo-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+  
+  .combo-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  
+  .combo-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+  
+  .combo-description {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+</style>

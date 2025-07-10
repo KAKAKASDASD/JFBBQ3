@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entradas - JF BBQ</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <!-- NAVBAR -->
+  <nav>
+    <div class="navbar-container">
+      <div class="navbar-logo"><i class="fas fa-fire"></i> JF BBQ</div>
+      <div class="navbar-links">
+        <a href="index.html">Inicio</a>
+        <a href="entradas.html">Entradas</a>
+        <a href="almuerzos.html">Almuerzos</a>
+        <a href="comidasrapidas.html">Comidas Rápidas</a>
+        <a href="promos.html">Promos y Combos</a>
+        <a href="bebidas.html">Bebidas</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TÍTULO -->
+  <header>Entradas</header>
+
+  <!-- CONTENEDOR CENTRAL -->
+  <div class="menu-container" style="display: flex; justify-content: center; padding-top: 40px; margin-bottom: 80px;">
+    <div class="combo-card" onclick="openModal('img/entradas.jpeg')" style="max-width: 400px; width: 100%;">
+      <div class="combo-icon">
+        <i class="fas fa-utensils"></i>
+      </div>
+      <h3 class="combo-title">Entradas</h3>
+      <div class="combo-price">¡Haz clic para ver!</div>
+      <p class="combo-description">Deliciosas opciones para abrir el apetito: patacones, arepas, chorizos y más.</p>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-fire"></i> JF BBQ
+        </div>
+        <p>Desde 2007 en Ibagué | © 2025</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="expandedImage">
+  </div>
+
+  <!-- SCRIPT DEL MODAL -->
+  <script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("expandedImage");
+      modal.style.display = "block";
+      modalImg.src = imageSrc;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+
+  <style>
+    .combo-card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .combo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .combo-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+    
+    .combo-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    
+    .combo-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .combo-description {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  </style>
+</body>
+</html>
